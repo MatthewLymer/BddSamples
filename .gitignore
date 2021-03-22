@@ -351,3 +351,6 @@ MigrationBackup/
 
 # JetBrains based IDE
 .idea/
+
+# SpecFlow feature code behinds
+*.feature.cs
