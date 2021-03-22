@@ -7,15 +7,9 @@ namespace BddSamples.IntegrationTesting.CalculatorTests
     [Binding]
     public sealed class StepDefinitions
     {
-        private readonly ScenarioContext _context;
         private Calculator _calculator;
         private decimal _actualResult;
-
-        public StepDefinitions(ScenarioContext context)
-        {
-            _context = context;
-        }
-        
+       
         [Given(@"a new instance of a calculator")]
         public void GivenANewInstanceOfACalculator()
         {
@@ -23,7 +17,7 @@ namespace BddSamples.IntegrationTesting.CalculatorTests
         }
     
         [When(@"I add (.*) and (.*) together")]
-        public void WhenIAddOperand1AndOperand2Together(int operand1, int operand2)
+        public void WhenIAddOperand1AndOperand2Together(decimal operand1, decimal operand2)
         {
             _actualResult = _calculator.Add(operand1, operand2);
         }
@@ -32,6 +26,12 @@ namespace BddSamples.IntegrationTesting.CalculatorTests
         public void ThenTheResultShouldBeExpectedResult(decimal expectedResult)
         {
             Assert.Equal(expectedResult, _actualResult);
+        }
+
+        [When(@"I multiply (.*) and (.*) together")]
+        public void WhenIMultiplyOperand1AndOperand2Together(decimal operand1, decimal operand2)
+        {
+            _actualResult = _calculator.Multiply(operand1, operand2);
         }
     }
 }

@@ -6,5 +6,10 @@
         {
             return a + b;
         }
+
+        public decimal Multiply(decimal a, decimal b)
+        {
+            return a * b;
+        }
     }
 }
